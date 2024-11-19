@@ -1,0 +1,548 @@
+/*Program perhitungan Jumlah Bilangan Ganjil*/
+
+#include <stdio.h>
+
+int hitungBilanganGanjil(int jumlahBilangan){
+    int i, bilangan = 1, jumlahGanjil = 0;
+
+    for (i = 1; i <= jumlahBilangan; i++)
+    {
+        jumlahGanjil += bilangan;
+        bilangan += 2;
+    }
+    
+    return jumlahGanjil;
+}
+
+int main(){
+    int jumlahBilangan, hasil;
+
+    printf("============== WELCOME TO MY PROGRAM ==============\n");
+    printf("\nMasukkan Jumlah Billangan:");
+    scanf("%d", &jumlahBilangan);
+
+    hasil = hitungBilanganGanjil(jumlahBilangan);
+
+    printf("Jumlah Bilangan Ganjil Dari %d Bilangan Pertama Adalah %d\n", jumlahBilangan, hasil);
+    return 0;
+}
+
+===================================================================================================
+
+/*Program perhitungan Penjumlahan Dalam Array*/
+
+#include <stdio.h>
+
+int jumlahArray(int array[], int panjang)
+{
+    int i, total = 0;
+
+    for ( i = 0; i < panjang; i++)
+    {
+        total += array[i];
+    }
+
+    return total;
+}
+
+int main(){
+    
+    int data [4];
+    int i, total;
+
+    printf("========== WELCOME TO MY PROGRAM ==========\n");
+    for (i = 0; i < 4; i++)
+    {
+        printf("Masukkan Data %d:", i + 1);
+        scanf("%d", &data[i]);
+    }
+
+    total = jumlahArray(data, 4);
+
+    printf("Jumlah Total: %d\n", total);
+    return 0;    
+}
+
+===================================================================================================
+
+// Program Yang Membaca Inputan Keyboard Dengan Frekuesi
+
+#include <stdio.h>
+
+    int
+    main()
+{
+    int jumlah_karakter; // Variabel Yang Berguna Sebagai Penyimpanan jumlah_karakter
+
+    printf("==== Welcome To My Program ====== \n\n");
+
+    printf("Masukkan jumlah karakter yang akan dihitung: ");
+    scanf("%d", &jumlah_karakter); // Mengambil input jumlah_karakter dan menyimpan yang diinputkan user dan
+
+    char karakter[jumlah_karakter];
+    // array karakter yang akan digunakan untuk menyimpan karakter yang dimasukkan oleh pengguna.printf("\nMasukkan karakter:\n");
+
+    // Membaca karakter dari pengguna
+    for (int i = 0; i < jumlah_karakter; i++)
+    { // Membaca karakter-karakter yang dimasukkan dan menyimpan dalam array karakter
+        printf("Masukkan karakter ke-%d: ", i + 1);
+        scanf(" %c", &karakter[i]);
+    }
+
+    // Menghitung frekuensi kemunculan tiap karakter
+    for (char ch = 'a'; ch <= 'z'; ch++)
+    { //  Loop untuk menghitung frekuensi kemunculan tiap karakter dari 'a
+        int frekuensi = 0;
+        for (int i = 0; i < jumlah_karakter; i++)
+        { // Membaca karakter-karakter yang dimasukkan dan menyimpan dalam array karakter
+            if (karakter[i] == ch)
+            {
+                frekuensi++;
+            }
+        }
+        if (frekuensi > 0)
+        {
+            printf("Frekuensi %c=%d\n", ch, frekuensi);
+        }
+    }
+
+    return 0;
+}
+
+===================================================================================================
+// Program Matriks 2D Menggunakan Inisialisasi Langsung > Penjumlahan
+
+#include <stdio.h>
+
+int main()
+{
+    // Inisialisasi Matriks: Inisialisasi Dua Matriks 3x3
+    int matriks1[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    int matriks2[3][3] = {{9, 8, 7}, {6, 5, 4}, {3, 2, 1}};
+    int hasil[3][3];
+
+    // Penjumlahan Matriks:  Dua Nested Loop untuk melakukan penjumlahan elemen matriks.
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            hasil[i][j] = matriks1[i][j] + matriks2[i][j]; // Penyimpanan Hasil Dari Penjumlahan Dua Matriks
+        }
+    }
+
+    printf("========== WELCOME TO MY PROGRAM ==========");
+    // Menampilkan Hasil: Setelah melakukan penjumlahan, line ini menggunakan Loop agar mencetak hasil penjumlahan ke layar.
+    printf("Hasil penjumlahan matriks (3X3):\n");
+    for (int i = 0; i < 3; i++)
+    { // Nested Loop
+        for (int j = 0; j < 3; j++)
+        { // Nested Loop
+            printf("%d ", hasil[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
+===================================================================================================
+// Program Pencari Bilangan Terbesar
+
+#include <stdio.h>
+
+int main()
+{
+    int bilangan[10]; // Array untuk menyimpan 10 bilangan
+    int temp;         // Pertukaran sementara bilangan saat dilakukan pengurutan
+
+    printf("===== Selamat Datang Di Program Pencari Bilangan Terbesar=====\n");
+
+    // Meminta user untuk menginputkan 10 angka
+    printf("\nMasukkan 10 bilangan:\n");
+    for (int i = 0; i < 10; i++)
+    {
+        printf("Bilangan ke-%d: ", i + 1);
+        scanf("%d", &bilangan[i]);
+    }
+
+    // Melakukan pengurutan dalam urutan menurun
+    for (int i = 0; i < 10; i++)
+    { // Loop For
+        for (int j = i + 1; j < 10; j++)
+        {
+            if (bilangan[i] < bilangan[j])
+            {
+
+                // Menukar bilangan jika bilangan[i] < bilangan[j]
+                temp = bilangan[i];
+                bilangan[i] = bilangan[j];
+                bilangan[j] = temp;
+            }
+        }
+    }
+
+    // Mencetak bilangan dalam urutan menurun
+    printf("Bilangan dalam urutan menurun:\n");
+    for (int i = 0; i < 10; i++)
+    {
+        printf("%d ", bilangan[i]);
+    }
+
+    return 0;
+}
+
+===================================================================================================
+// Program Penghitung nilai Rata Rata Mahasiswa Menggunakan Array
+
+#include <stdio.h>
+
+int main()
+{
+    int jumlah_mahasiswa;
+
+    printf("===== Selamat Datang Di Program Penginputan Dan Perhitungan Nilai Rata Rata Mahasiswa =====\n\n");
+
+    printf("Jumlah mahasiswa: ");
+    scanf("%d", &jumlah_mahasiswa);
+
+    double nilai_mahasiswa[jumlah_mahasiswa][2]; // [0] untuk total nilai, [1] untuk rata-rata
+    char nama_mahasiswa[jumlah_mahasiswa][50];   // Array untuk nama mahasiswa
+
+    for (int i = 0; i < jumlah_mahasiswa; i++)
+    {
+        printf("\nNama Mahasiswa-%d: ", i + 1);
+        scanf("%s", nama_mahasiswa[i]);
+
+        printf("Jumlah nilai: ");
+        int jumlah_nilai;
+        scanf("%d", &jumlah_nilai);
+
+        nilai_mahasiswa[i][0] = 0.0; // Inisialisasi total nilai
+
+        for (int j = 0; j < jumlah_nilai; j++)
+        {
+            double temp;
+            printf("Nilai-%d: ", j + 1);
+            scanf("%lf", &temp);
+            nilai_mahasiswa[i][0] += temp; // Menambahkan nilai ke total nilai
+        }
+
+        // Menghitung rata-rata nilai
+        nilai_mahasiswa[i][1] = nilai_mahasiswa[i][0] / jumlah_nilai;
+    }
+
+    for (int i = 0; i < jumlah_mahasiswa; i++)
+    {
+        printf("\nRata-rata Nilai Mahasiswa-%d (%s): %.2lf\n", i + 1, nama_mahasiswa[i], nilai_mahasiswa[i][1]);
+    }
+
+    return 0;
+}
+
+===================================================================================================
+
+// Program Konversi Satuan Pengukuran (Feet) Dengan Fungsi
+
+#include <stdio.h>
+
+double f_to_i(double feet)
+{
+    return feet * 12.0;
+    // dengan catatan : 1 kaki = 12 inci
+}
+
+double i_to_cm(double inches)
+{
+    return inches * 2.54;
+    // dengan catatan :  1 inci = 2.54 cm
+}
+
+double c_to_m(double cm)
+{
+    return cm / 100.0;
+    // dengan catatan :  1 cm = 0.01 meter
+}
+
+int main()
+{
+    printf("===== Selamat Datang Di Program Konversi Satuan (Feet To Inch,Feet To Cm,Feet To M) =====\n");
+    double feet, inches, cm, meters;
+
+    // Inputkan Angka Dengan Satuan Feet
+    printf("\nMasukkan ukuran dalam satuan kaki (feet): ");
+    scanf("%lf", &feet);
+
+    // Proses Konversi Satuan Dari Kaki Ke Inci
+    inches = f_to_i(feet);
+
+    // Proses Konversi Satuan Dari Inci Ke Centimeter
+    cm = i_to_cm(inches);
+
+    // Proses Konversi Dari Centimeter Ke Meter
+    meters = c_to_m(cm);
+
+    // Tampilan Dalam Satuan Meter
+    printf("%.2lf feet setara dengan %.2lf meters\n", feet, meters);
+    // Tampilan Dalam Satuan Inch
+    printf("%.2lf feet setara dengan %.2lf meters\n", feet, inches);
+    // Tampilan Dalam Satuan Cm
+    printf("%.2lf feet setara dengan %.2lf meters\n", feet, cm);
+
+    printf("\n===== Terima Kasih Sudah Menggunakan Program Konversi Satuan (Feet To Inch,Feet To Cm,Feet To M) =====\n");
+    return 0;
+}
+
+===================================================================================================
+
+// Program Untuk Menjumlahkan 5 Angka Dengan Angka Genap Saja
+
+#include <stdio.h>
+
+// Fungsi Untuk Menyatakan Satu Argumen Yaitu Jumlah Angka N Yang Dimasukkan Oleh User Berupa Angka Genap
+float hitungTotalAngkaGenap(int n)
+{
+    float total = 0.0; // Variabel Yang Berguna Sebagai Penyimpan Total Angka Genap
+    float angka;       // Variabel Yang Berguna Sebagai Penyimpanan Total Angka Genap
+
+    printf("========== Selamat Datang Di Program Penjumlahan Angka (Genap) ==========\n");
+    // Perulangan/Looping For
+    for (int i = 0; i < n; i++)
+    {
+        printf("Masukkan Angka ke-%d : ", i + 1); // Meminta User Untuk Memasukan Angka Sebanyak N Kali
+        scanf("%f", &angka);                      // Peyimpanan Angka Yang Telah Dimasukkan Oleh User
+
+        if (((int)angka) % 2 == 0)
+        {                   // Pengecekan Angka Apabila Sisa Bagi 2 Adalah 0, Maka Bilangan Tersebut Adalah Genap, Dengan Pernyataan  % 2 == 0
+            total += angka; // Penyimpanan Angka Genap
+        }
+    }
+
+    return total; // Pengembalian Nilai 'total' Yang Kemudian Di Simpan kedalam Variabel 'totalGenap' yang ada di fungsi 'main'
+}
+
+int main()
+{
+    int n = 5; // Menentukan Jumlah Angka Yang Diinputkan Oleh User
+
+    float totalGenap = hitungTotalAngkaGenap(n); // Menyimpan Hasil Dari Fungsi 'hitungTotalAngkaGenap' Sebanyak Argumen '(n)'
+
+    printf("\nHasil penjumlahan Angka Genap = %g\n", totalGenap); // Tampilan Pada User Yang Menampilkan Hasil Penjumlahan Angka Genap
+
+    return 0; // Pengembalian Bahwa Program Suskse Dijalankan
+}
+
+===================================================================================================
+
+// Program Untuk Menghitung 5 Angka Dengan Output Hasil Dan Rata Rata
+
+#include <stdio.h>
+
+float hitungTotal(int n)
+{                      // Fungsi Untuk Menghitung Total Angka N Yang dimasukkan oleh user
+    float total = 0.0; // Fungsi untuk menyimpan total angka n
+    float angka;       // Fungsi untuk menyimpan angka yang dimasukkan oleh user
+
+    printf("============ Selamat Datang Di Pogram Penjumlahan Dan Rata Rata ============\n"); 
+    for (int i = 0; i < n; i++)
+    {                                             // Perlangan/Looping untuk memminta user memasukkan angka sebanyak angka N kali
+        printf("Masukkan Angka ke-%d : ", i + 1); // User memasukkan angka sebnayak N kali
+        scanf("%f", &angka);                      // penyimpanan semnetara angka yang diinputkan lalu diteruskan ke dalam variabel 'total'
+
+        total += angka; // penyimpanan angka yang sudah diinputkan oleh user
+    }
+
+    return total; // Pengembalian nilai untuk hasil perhitungan
+}
+
+float hitungRataRata(float total, int n)
+{                     // Fungsi untuk mengambil nilai angka dengan argumen 'total' dan jumlah angka dengan argumen 'n'
+    return total / n; // Proses pengembalian yang mengahsilkan nilai rata rata
+}
+
+int main()
+{
+    int n = 5; // Menentukan Jumlah Angka Yang Diinputkan Oleh Pengguna sebanyak 'n'
+
+    float total = hitungTotal(n);               // Menghitung total dari n angka yang dimasukkan
+    float rata_rata = hitungRataRata(total, n); // Menghitung rata-rata dari total angka
+
+    printf("\nHasil penjumlahan Angka = %g\n", total); // Tampilan Pada User Yang Menampilkan Hasil Penjumlahan Angka
+    printf("Rata-rata Angka = %g\n", rata_rata);       // Tampilan Pada User Yang Menampilkan Hasil Rata Rata Angka
+
+    return 0; // Program Berhasil Dan Sukses
+}
+
+===================================================================================================
+//Program Penukar Bilangan
+
+#include <stdio.h>
+
+void tukarNilai(float x, float y)
+{                          // Menukar Dua Nilai Float Dengan Argumen 'x' dan 'y'
+    float temp = x;        // Penyimpanan Variabel X
+    x = y;                 // Proses Diamana Variabel X Akan Berubah Menjadi Variabel Y
+    y = temp;              // Proses Diamana Variabel Y Akan Berubah Menjadi Variabel X
+    printf("a = %g\n", x); // Tampilan Variabel X Pada User
+    printf("b = %g\n", y); // Tampilan Variabel X Pada User
+}
+
+int main()
+{
+    float a, b;  // Penyimpanan Dua Angka
+    int pilihan; // Proses Penerimaan Oleh User
+
+    printf("=====Selamat Datang di Program Penukaran Dua Bilangan=====\n\n");
+
+    // Perulangan Atau Looping Diaman User Akan Memasukkan Angka 3 Atau 5 Dan 0 Adalah Keluar
+    do
+    {
+        printf("Inputkan Salah Satu Angka Antara 3/5, atau 0 untuk keluar: ");
+        scanf("%d", &pilihan);
+
+        if (pilihan == 0)
+        {
+
+            printf("Keluar dari program.\n");
+            break; // Proses Dimana Ketika User Menginputkan Angka 0 Maka Program Akan Berhenti
+        }
+        else if (pilihan == 3)
+        { // Proses Dimana Ketika User Menginputkan Angka 3 Maka Program Akan Berjalan
+
+            printf("Masukkan Angka untuk a: ");
+            scanf("%f", &a);
+            printf("Masukkan Angka untuk b: ");
+            scanf("%f", &b);
+
+            tukarNilai(a, b);
+        }
+        else if (pilihan == 5)
+        { // Proses Dimana Ketika User Menginputkan Angka 5 Program Akan Berjalan
+
+            printf("Masukkan Angka untuk a: ");
+            scanf("%f", &a);
+            printf("Masukkan Angka untuk b: ");
+            scanf("%f", &b);
+
+            tukarNilai(a, b); // proses pertukaran nilai
+        }
+    } while (pilihan != 3 && pilihan != 5); // Program Akan Terus Berulang hingga user meniginputkan angka 3 atau 5
+}
+===================================================================================================
+
+// Program Yang Mencari Angka Terbesar
+
+#include <stdio.h>
+int Bilangan_Terbesar(int a, int b, int c) { // Mencari dan mengembalikan angka terbesar dari ketiga variabel (a,b,c)
+    int Angka_Terbesar = a; // Penyimpanan angka terbesar
+
+    if (b > Angka_Terbesar) {
+        Angka_Terbesar = b; // Pengecekan Apabila Nilai b Lebih Besar
+    }
+
+    if (c > Angka_Terbesar) {
+        Angka_Terbesar = c; // Pengecekan Apabila Nilai c Lebih Besar
+    }
+
+    return Angka_Terbesar; // Pengembalian ke variabel (Angka_Terbesar)
+}
+
+int main() { // Fungsi utama program
+    int angka1, angka2, angka3; //Variabel yang berguna sebagai penyimpanan angak1,angka2,angka3
+
+    printf("=====Selamat Datang di Program Pencarian Angka Terbesar=====\n\n");
+    printf("Silahkan Masukkan Angka\n");
+
+    printf("Masukkan angka pertama: ");
+    scanf("%d", &angka1); // Penginputan Angka Pertama
+
+    printf("Masukkan angka kedua: ");
+    scanf("%d", &angka2); // Penginputan Angka Kedua
+
+    printf("Masukkan angka ketiga: ");
+    scanf("%d", &angka3); // Penginputan Angka Ketiga
+
+    int Angka_Terbesar = Bilangan_Terbesar(angka1, angka2, angka3); // Pemanggilan tiga angka yang sudah diinputkasn oleh user , dan hasil akan dikembalikan dan disimpan di variabel angka terbesar
+
+    printf("Bilangan terbesar adalah: %d\n", Angka_Terbesar);
+
+    return 0;// Program diakhiri
+}
+
+===================================================================================================
+// Program Kalkulator Sederhana
+
+#include <stdio.h>
+
+// Fungsi untuk penjumlahan
+float plus(float a, float b)
+{
+    return a + b; // pengembalian hasil plus
+}
+
+// Fungsi untuk pengurangan
+float min(float a, float b)
+{
+    return a - b; // pengembalian hasil min
+}
+
+// Fungsi untuk perkalian
+float times(float a, float b)
+{
+    return a * b; // pengembalian hasil times
+}
+
+// Fungsi untuk pembagian
+float divided(float a, float b)
+{
+    if (b != 0)
+    {
+        return a / b; // pengembalian hasil divided
+    }
+    else
+    {
+        printf("Error: Pembagian oleh nol tidak diizinkan.\n");
+        return 0.0;
+    }
+}
+
+int main()
+{
+    float angka1, angka2; // Penyimpanan 2 angka
+    char operator;        // penyimpanan operator aritmatika
+
+    printf("=====Selamat Datang di Program Kalkulator Aritmatika Sederhana=====\n\n");
+
+    printf("Masukkan angka pertama: ");
+    scanf("%f", &angka1); // User Menginputkan Angka 1
+
+    printf("Masukkan operator (+, -, *, /): ");
+    scanf(" %c", &operator); // User Menginputkan Operator
+
+    printf("Masukkan angka kedua: ");
+    scanf("%f", &angka2); // User Menginputkan Angka 2
+
+    float hasil;
+
+    switch (operator)
+    {
+    case '+':
+        hasil = plus(angka1, angka2); // Pemrosesan aritmatika
+        break;
+    case '-':
+        hasil = min(angka1, angka2); // Pemrosesan aritmatika
+        break;
+    case '*':
+        hasil = times(angka1, angka2); // Pemrosesan aritmatika
+        break;
+    case '/':
+        hasil = divided(angka1, angka2); // Pemrosesan aritmatika
+        break;
+    default:
+        printf("Error: Operator tidak valid.\n");
+        return 1; // Keluar program dengan kode kesalahan
+    }
+
+    printf("Hasil perhitungan: %.3f\n", hasil); // Output Dari Aritmatika
+
+    return 0;
+}
